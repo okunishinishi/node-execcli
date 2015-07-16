@@ -1,0 +1,38 @@
+{
+  "name": "node-execcli",
+  "version": "1.0.0",
+  "description": "Execute CLI command on sub process.",
+  "main": "execcli.js",
+  "scripts": {
+    "test": "nodeunit execcli_test.js",
+    "cover": "istanbul cover nodeunit execcli_test.js --dir coverage",
+    "report": "coveralls  < coverage/lcov.info",
+    "versionup": "versionup",
+    "taggit": "taggit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/okunishinishi/node-execcli.git"
+  },
+  "keywords": [
+    "CLI",
+    "child_process",
+    "command",
+    "exec"
+  ],
+  "author": "Taka Okunishi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/okunishinishi/node-execcli/issues"
+  },
+  "homepage": "https://github.com/okunishinishi/node-execcli#readme",
+  "dependencies": {
+    "argx": "^1.0.5"
+  },
+  "devDependencies": {
+    "istanbul": "^0.3.17",
+    "nodeunit": "^0.9.1",
+    "taggit": "^1.0.3",
+    "versionup": "^1.0.7"
+  }
+}
