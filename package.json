@@ -1,5 +1,5 @@
 {
-  "name": "node-execcli",
+  "name": "execcli",
   "version": "1.0.1",
   "description": "Execute CLI command on sub process.",
   "main": "execcli.js",
