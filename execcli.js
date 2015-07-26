@@ -11,6 +11,7 @@
 "use strict";
 
 var argx = require('argx'),
+    stringcase = require('stringcase'),
     childProcess = require('child_process');
 
 function _spawn(bin, args, options, callback) {
@@ -30,7 +31,7 @@ function _optionArgs(options) {
         })
         .map(function (key) {
             var prefix = key.length === 1 ? '-' : '--';
-            var prefixedKey = prefix + key.replace(/^\-+/, '');
+            var prefixedKey = prefix + stringcase.spinalcase(key).replace(/^\-+/, '');
             if (options[key] === true) {
                 return [prefixedKey];
             } else {
@@ -75,5 +76,8 @@ function execcli(cmdBin, cmdArgs, cmdOptions, callback) {
     var keywords = _keywords([cmdBin].concat(_optionArgs(cmdOptions)).concat(cmdArgs));
     _spawn(keywords.shift(), keywords, spawnOptions, callback);
 }
+
+execcli._optionArgs = _optionArgs;
+execcli._spawn = _spawn;
 
 module.exports = execcli;

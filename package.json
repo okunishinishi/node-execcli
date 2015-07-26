@@ -1,6 +1,6 @@
 {
   "name": "execcli",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Execute CLI command on sub process.",
   "main": "execcli.js",
   "scripts": {
@@ -27,7 +27,8 @@
   },
   "homepage": "https://github.com/okunishinishi/node-execcli#readme",
   "dependencies": {
-    "argx": "^1.0.5"
+    "argx": "^1.0.5",
+    "stringcase": "^1.0.8"
   },
   "devDependencies": {
     "codeclimate-test-reporter": "0.1.0",
