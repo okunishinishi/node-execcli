@@ -13,3 +13,12 @@ exports['Exec cli.'] = function (test) {
         test.done();
     });
 };
+
+exports['Exec cli with spawn options.'] = function (test) {
+    execcli('ls', '.', {a: true, l: true}, {
+        cwd: __dirname + '/ci'
+    }, function (err) {
+        test.ifError(err);
+        test.done();
+    });
+};

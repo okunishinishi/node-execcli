@@ -4,6 +4,7 @@
  * @param {string} cmdBin - Bin command to execute.
  * @param {string} [cmdArgs] - Bin command arguments to execute.
  * @param {object} [cmdOptions] - Optional settings.
+ * @param {object} [spawnOptions] - Spawn options.
  * @param {function} callback - Callback when done.
  */
 
@@ -36,21 +37,43 @@ function _optionArgs(options) {
                 return [prefixedKey, options[key]];
 
             }
-        }).reduce(function (a, b) {
-            return a.concat(b);
-        }, []);
+        }).reduce(_concat, []);
 }
 
+
+function _concat(a, b) {
+    return a.concat(b);
+}
+function _validString(val) {
+    return !!val;
+}
+
+function _keywords(text) {
+    return [].concat(text || [])
+        .reduce(_concat, [])
+        .map(function (text) {
+            return text.split(/\s/g).filter(_validString);
+        })
+        .reduce(_concat, []);
+}
 
 /** @lends execcli */
 function execcli(cmdBin, cmdArgs, cmdOptions, callback) {
     var args = argx(arguments);
     cmdBin = args.shift();
     callback = args.pop('function') || argx.noop;
-    cmdOptions = args.pop('object') || {};
+    var opt1 = args.pop('object') || {}, opt2 = args.pop('object');
+    var spawnOptions;
+    if (opt2) {
+        cmdOptions = opt2;
+        spawnOptions = opt1;
+    } else {
+        cmdOptions = opt1;
+        spawnOptions = {};
+    }
     cmdArgs = args.remain();
-
-    _spawn(cmdBin, _optionArgs(cmdOptions).concat(cmdArgs), {}, callback);
+    var keywords = _keywords([cmdBin].concat(_optionArgs(cmdOptions)).concat(cmdArgs));
+    _spawn(keywords.shift(), keywords, spawnOptions, callback);
 }
 
 module.exports = execcli;
