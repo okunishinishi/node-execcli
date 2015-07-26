@@ -49,14 +49,6 @@ function _validString(val) {
     return !!val;
 }
 
-function _keywords(text) {
-    return [].concat(text || [])
-        .reduce(_concat, [])
-        .map(function (text) {
-            return text.split(/\s/g).filter(_validString);
-        })
-        .reduce(_concat, []);
-}
 
 /** @lends execcli */
 function execcli(cmdBin, cmdArgs, cmdOptions, callback) {
@@ -73,8 +65,7 @@ function execcli(cmdBin, cmdArgs, cmdOptions, callback) {
         spawnOptions = {};
     }
     cmdArgs = args.remain();
-    var keywords = _keywords([cmdBin].concat(_optionArgs(cmdOptions)).concat(cmdArgs));
-    _spawn(keywords.shift(), keywords, spawnOptions, callback);
+    _spawn(cmdBin, cmdArgs, spawnOptions, callback);
 }
 
 execcli._optionArgs = _optionArgs;
