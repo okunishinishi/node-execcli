@@ -65,7 +65,7 @@ function execcli(cmdBin, cmdArgs, cmdOptions, callback) {
         spawnOptions = {};
     }
     cmdArgs = args.remain();
-    _spawn(cmdBin, cmdArgs, spawnOptions, callback);
+    _spawn(cmdBin, _optionArgs(cmdOptions).concat(cmdArgs), spawnOptions, callback);
 }
 
 execcli._optionArgs = _optionArgs;
