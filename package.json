@@ -32,9 +32,9 @@
   },
   "devDependencies": {
     "ape-covering": "^1.0.0",
+    "ape-reporting": "^1.0.0",
     "ape-testing": "^1.1.0",
     "async": "^1.4.0",
-    "codeclimate-test-reporter": "0.1.0",
     "colorprint": "^1.1.1",
     "taggit": "^1.0.3",
     "versionup": "^1.0.7",

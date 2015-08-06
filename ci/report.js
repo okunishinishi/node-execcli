@@ -3,18 +3,17 @@
 "use strict";
 
 var path = require('path'),
-    fs = require('fs'),
-    childProcess = require('child_process');
+    apeReporting = require('ape-reporting');
 
 var basedir = path.resolve(__dirname, '..');
 process.chdir(basedir);
 
-var codeclimate = require.resolve('codeclimate-test-reporter/bin/codeclimate.js');
-
-childProcess.spawn(codeclimate, {
-    stdio: [
-        fs.openSync(basedir + '/coverage/lcov.info', 'r'),
-        process.stdout,
-        process.stderr
-    ]
+async.series([
+    function (callback) {
+        apeReporting.sendToCodeclimate(basedir + '/coverage/lcov.info', callback);
+    }
+], function (err) {
+    if (err) {
+        console.error(err);
+    }
 });
