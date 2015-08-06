@@ -2,10 +2,11 @@
  * Execute cli.
  * @function execcli
  * @param {string} cmdBin - Bin command to execute.
- * @param {string} [cmdArgs] - Bin command arguments to execute.
- * @param {object} [cmdOptions] - Optional settings.
- * @param {object} [spawnOptions] - Spawn options.
- * @param {function} callback - Callback when done.
+ * @param {Array} cmdArgs - Bin command arguments to execute.
+ * @param {object} [options] - Optional settings.
+ * @param {function} [callback] - Callback when done.
+ * @example
+ *
  */
 
 "use strict";
@@ -38,34 +39,28 @@ function _optionArgs(options) {
                 return [prefixedKey, options[key]];
 
             }
-        }).reduce(_concat, []);
+        }).reduce(_concatArray, []);
 }
 
 
-function _concat(a, b) {
-    return a.concat(b);
-}
-function _validString(val) {
-    return !!val;
+function _concatArray(a, b) {
+    return [].concat(a).concat(b);
 }
 
 
 /** @lends execcli */
-function execcli(cmdBin, cmdArgs, cmdOptions, callback) {
+function execcli(cmdBin, cmdArgs, options, callback) {
     var args = argx(arguments);
-    cmdBin = args.shift();
     callback = args.pop('function') || argx.noop;
-    var opt1 = args.pop('object') || {}, opt2 = args.pop('object');
-    var spawnOptions;
-    if (opt2) {
-        cmdOptions = opt2;
-        spawnOptions = opt1;
-    } else {
-        cmdOptions = opt1;
-        spawnOptions = {};
-    }
-    cmdArgs = args.remain();
-    _spawn(cmdBin, _optionArgs(cmdOptions).concat(cmdArgs), spawnOptions, callback);
+    cmdBin = args.shift('string');
+    cmdArgs = args.shift('array').map(function (arg) {
+        if (typeof(arg) === 'object') {
+            return _optionArgs(arg);
+        }
+        return arg;
+    }).reduce(_concatArray, []);
+    options = args.pop('object');
+    _spawn(cmdBin, cmdArgs, options, callback);
 }
 
 execcli._optionArgs = _optionArgs;

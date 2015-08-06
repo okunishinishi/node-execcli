@@ -16,11 +16,9 @@ Usage
 
 var execcli = require('execcli');
 
-// Equivalant to execute `ls -l .` from command line. 
-execcli('ls', '.', {'l':true}, function(err){
-    if(err){
-        console.error(err);
-    }
+// Equivariant to execute `ls -l .` from command line.
+execcli('ls', ['.', {'l':true}], function (err) {
+    /*...*/
 });
 ````
 
@@ -28,7 +26,7 @@ Installation
 ----
 
 ```
-$ npm install execli --save
+$ npm install execcli --save
 ```
 
 License

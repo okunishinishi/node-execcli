@@ -1,5 +1,5 @@
 /**
- * Test for execli.
+ * Test for execcli.
  * Runs with nodeunit.
  */
 
@@ -17,14 +17,14 @@ exports['Optional args.'] = function (test) {
 };
 
 exports['Exec cli.'] = function (test) {
-    execcli('ls', '.', {a: true, l: true}, function (err) {
+    execcli('ls', [{a: true, l: true}, '.'], function (err) {
         test.ifError(err);
         test.done();
     });
 };
 
 exports['Exec cli with spawn options.'] = function (test) {
-    execcli('ls', '.', {a: true, l: true}, {
+    execcli('ls', [{a: true, l: true}, '.'], {
         cwd: __dirname + '/ci'
     }, function (err) {
         test.ifError(err);
