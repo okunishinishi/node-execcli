@@ -4,9 +4,9 @@
   "description": "Execute CLI command on sub process.",
   "main": "execcli.js",
   "scripts": {
-    "test": "nodeunit execcli_test.js",
-    "cover": "istanbul cover nodeunit execcli_test.js --dir coverage",
-    "report": "codeclimate-test-reporter < coverage/lcov.info",
+    "test": "./ci/test.js",
+    "cover": "./ci/cover.js",
+    "report": "./ci/report.js",
     "versionup": "versionup",
     "taggit": "taggit"
   },
@@ -31,10 +31,13 @@
     "stringcase": "^1.0.8"
   },
   "devDependencies": {
+    "async": "^1.4.0",
     "codeclimate-test-reporter": "0.1.0",
+    "colorprint": "^1.1.1",
     "istanbul": "^0.3.17",
     "nodeunit": "^0.9.1",
     "taggit": "^1.0.3",
-    "versionup": "^1.0.7"
+    "versionup": "^1.0.7",
+    "yesno": "0.0.1"
   }
 }

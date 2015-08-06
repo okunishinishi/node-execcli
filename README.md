@@ -16,7 +16,7 @@ Usage
 
 var execcli = require('execcli');
 
-// Equivariant to execute `ls -l .` from command line.
+// Equivalent to execute `ls -l .` from command line.
 execcli('ls', ['.', {'l':true}], function (err) {
     /*...*/
 });
