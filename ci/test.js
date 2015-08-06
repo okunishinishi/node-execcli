@@ -7,7 +7,7 @@
 "use strict";
 
 var path = require('path'),
-    nodeunit = require('nodeunit'),
+    apeTesting = require('ape-testing'),
     colorprint = require('colorprint'),
     async = require('async');
 
@@ -17,9 +17,9 @@ process.chdir(basedir);
 colorprint.notice('Test started...');
 async.series([
     function (callback) {
-        var reporter = nodeunit['reporters']['default'],
-            options = require('nodeunit/bin/nodeunit.json');
-        reporter.run(['execcli_test.js'], options, callback);
+        apeTesting.runNodeunit([
+            'execcli_test.js'
+        ], callback);
     }
 ], function (err) {
     if (err) {
