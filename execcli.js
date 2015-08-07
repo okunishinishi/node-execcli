@@ -53,7 +53,7 @@ function execcli(cmdBin, cmdArgs, options, callback) {
     var args = argx(arguments);
     callback = args.pop('function') || argx.noop;
     cmdBin = args.shift('string');
-    cmdArgs = args.shift('array').map(function (arg) {
+    cmdArgs = (args.shift('array') || []).map(function (arg) {
         if (typeof(arg) === 'object') {
             return _optionArgs(arg);
         }

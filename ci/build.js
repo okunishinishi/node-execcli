@@ -1,21 +1,24 @@
 #!/usr/bin/env node
 
 /**
- * Run test
+ * Run build
  */
 
 "use strict";
 
 var path = require('path'),
     apeTasking = require('ape-tasking'),
-    apeTesting = require('ape-testing');
+    coz = require('coz');
 
 var basedir = path.resolve(__dirname, '..');
 
 process.chdir(basedir);
 
-apeTasking.runTasks('test', [
+apeTasking.runTasks('build', [
     function (callback) {
-        apeTesting.runNodeunit('*_test.js', callback);
+        coz.render([
+            '.*.bud'
+        ], callback);
     }
 ], true);
+

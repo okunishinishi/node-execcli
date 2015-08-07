@@ -1,4 +1,4 @@
-node-execcli
+execcli
 =====
 
 [![Build Status][my_travis_badge_url]][my_travis_url]
@@ -7,12 +7,20 @@ node-execcli
 [![npm version][my_npm_budge_url]][my_npm_url]
 
 
-Execute cli command as sub process.
+Execute CLI command on sub process.
+
 
 Usage
 ----
 
 ```javascript
+#!/usr/bin/env node
+
+/**
+ * This is an example to use execcli.
+ */
+
+"use strict";
 
 var execcli = require('execcli');
 
@@ -28,6 +36,7 @@ Installation
 ```
 $ npm install execcli --save
 ```
+
 
 License
 -------
