@@ -20,6 +20,7 @@ execcli
 [bd_gemnasium_shield_url]: https://gemnasium.com/okunishinishi/node-execcli.svg
 [bd_npm_url]: http://www.npmjs.org/package/execcli
 [bd_npm_shield_url]: http://img.shields.io/npm/v/execcli.svg?style=flat
+[bd_bower_badge_url]: https://img.shields.io/bower/v/execcli.svg?style=flat
 
 <!-- Badge End -->
 
@@ -33,9 +34,13 @@ Execute CLI command on sub process.
 
 
 
+
 <!-- Sections Start -->
 <a name="sections"></a>
 
+<!-- Section from "doc/readme/01.Installation.md.hbs" Start -->
+
+<a name="section-doc-readme-01-installation-md"></a>
 Installation
 -----
 
@@ -43,25 +48,19 @@ Installation
 npm install execcli --save
 ```
 
+<!-- Section from "doc/readme/01.Installation.md.hbs" End -->
+
+<!-- Section from "doc/readme/02.Usage.md.hbs" Start -->
+
+<a name="section-doc-readme-02-usage-md"></a>
 Usage
 ----
 
 ```javascript
-#!/usr/bin/env node
 
-/**
- * This is an example to use execcli.
- */
-
-"use strict";
-
-var execcli = require('execcli');
-
-// Equivalent to execute `ls -l .` from command line.
-execcli('ls', ['.', {'l':true}], function (err) {
-    /*...*/
-});
 ````
+<!-- Section from "doc/readme/02.Usage.md.hbs" End -->
+
 
 <!-- Sections Start -->
 

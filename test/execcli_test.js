@@ -5,7 +5,7 @@
 
 "use strict";
 
-var execcli = require('./execcli');
+var execcli = require('../lib/execcli');
 
 exports['Optional args.'] = function (test) {
     var args = execcli._optionArgs({
@@ -25,9 +25,18 @@ exports['Exec cli.'] = function (test) {
 
 exports['Exec cli with spawn options.'] = function (test) {
     execcli('ls', [{a: true, l: true}, '.'], {
-        cwd: __dirname + '/ci'
+        cwd: __dirname + '/../ci'
     }, function (err) {
         test.ifError(err);
+        test.done();
+    });
+};
+
+exports['Exec not existing.'] = function (test) {
+    execcli('__invalid_command_', [{a: true, l: true}, '.'], {
+        notfound: 'Please try `foo`.'
+    }, function (err) {
+        test.ok(!!err);
         test.done();
     });
 };
