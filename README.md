@@ -74,6 +74,18 @@ execcli('ls', ['.', {'l':true}], function (err) {
 ````
 <!-- Section from "doc/readme/02.Usage.md.hbs" End -->
 
+<!-- Section from "doc/readme/03.Options.md.hbs" Start -->
+
+<a name="section-doc-readme-03-options-md"></a>
+Options
+-------
+
+| Key | Description | Default |
+| --- | --- |
+| notfound |  Instruction text when bin not found. | '' |
+| cwd | Working directory path | process.cwd() |
+<!-- Section from "doc/readme/03.Options.md.hbs" End -->
+
 
 <!-- Sections Start -->
 
