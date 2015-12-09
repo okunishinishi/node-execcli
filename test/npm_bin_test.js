@@ -1,20 +1,25 @@
 /**
  * Test case for npmBin.
- * Runs with nodeunit.
+ * Runs with mocha.
  */
+"use strict";
 
-var npmBin = require('../lib/npm_bin.js');
+const npmBin = require('../lib/npm_bin.js'),
+    assert = require('assert');
 
-exports.setUp = function(done) {
-    done();
-};
+describe('npm-bin', () => {
 
-exports.tearDown = function(done) {
-    done();
-};
+    before((done) => {
+        done();
+    });
 
-exports['Npm bin'] = function(test){
+    after((done) => {
+        done();
+    });
 
-    test.done();
-};
+
+    it('Npm bin', (done) => {
+        done();
+    });
+});
 

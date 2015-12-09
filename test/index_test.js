@@ -4,10 +4,13 @@
 
 "use strict";
 
-var index = require('../lib');
+const index = require('../lib');
 
-exports['Eval properties.'] = function (test) {
-    test.ok(index);
-    test.ok(index.version);
-    test.done();
-};
+describe('index', ()=> {
+
+    it('Eval properties.', (done) => {
+        assert.ok(index);
+        assert.ok(index.version);
+        done();
+    });
+});

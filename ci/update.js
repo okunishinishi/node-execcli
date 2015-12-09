@@ -12,7 +12,7 @@ var apeTasking = require('ape-tasking'),
     apeUpdating = require('ape-updating');
 
 apeTasking.runTasks('update', [
-    function renderBud(callback) {
+    (callback) => {
         apeUpdating.updateDependencies({}, callback);
     }
 ], true);

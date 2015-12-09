@@ -12,7 +12,7 @@ var apeTasking = require('ape-tasking'),
     apeReleasing = require('ape-releasing');
 
 apeTasking.runTasks('release', [
-    function releasePackage(callback) {
+    (callback) => {
         apeReleasing.releasePackage({
             beforeRelease: [
                 './ci/build.js',

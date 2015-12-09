@@ -12,7 +12,7 @@ var apeTasking = require('ape-tasking'),
     apeCovering = require('ape-covering');
 
 apeTasking.runTasks('cover', [
-    function measureCoverage(callback) {
+    (callback) => {
         apeCovering.measureCoverage('ci/test.js', [], {
             dir: 'coverage'
         }, callback);

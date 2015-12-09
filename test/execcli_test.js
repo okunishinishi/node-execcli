@@ -1,50 +1,55 @@
 /**
  * Test for execcli.
- * Runs with nodeunit.
+ * Runs with mocha.
  */
 
 "use strict";
 
-var execcli = require('../lib/execcli');
+const execcli = require('../lib/execcli'),
+    assert = require('assert');
 
-exports['Optional args.'] = function (test) {
-    var args = execcli._optionArgs({
-        'fooBar': 'bazQuz',
-        '--quz-buz': '123'
-    });
-    test.deepEqual(args, ['--foo-bar', 'bazQuz', '--quz-buz', '123']);
-    test.done();
-};
+descrie('execcli', ()=> {
 
-exports['Exec cli.'] = function (test) {
-    execcli('ls', [{a: true, l: true}, '.'], function (err) {
-        test.ifError(err);
-        test.done();
-    });
-};
 
-exports['Exec cli with spawn options.'] = function (test) {
-    execcli('ls', [{a: true, l: true}, '.'], {
-    }, function (err) {
-        test.ifError(err);
-        test.done();
+    it('Optional args.', (done) => {
+        let args = execcli._optionArgs({
+            'fooBar': 'bazQuz',
+            '--quz-buz': '123'
+        });
+        assert.deepEqual(args, ['--foo-bar', 'bazQuz', '--quz-buz', '123']);
+        done();
     });
-};
 
-exports['Exec cli spawn working directory.'] = function (test) {
-    execcli('ls', [{a: true, l: true}, '.'], {
-        cwd: __dirname + '/../ci'
-    }, function (err) {
-        test.ifError(err);
-        test.done();
+    it('Exec cli.', (done) => {
+        execcli('ls', [{a: true, l: true}, '.'], function (err) {
+            assert.ifError(err);
+            done();
+        });
     });
-};
 
-exports['Exec not existing.'] = function (test) {
-    execcli('__invalid_command_', [{a: true, l: true}, '.'], {
-        notfound: 'Please try `foo`.'
-    }, function (err) {
-        test.ok(!!err);
-        test.done();
+    it('Exec cli with spawn options.', (done) => {
+        execcli('ls', [{a: true, l: true}, '.'], {}, (err) => {
+            assert.ifError(err);
+            done();
+        });
     });
-};
+
+    it('Exec cli spawn working directory.', (done) => {
+        execcli('ls', [{a: true, l: true}, '.'], {
+            cwd: __dirname + '/../ci'
+        }, (err) => {
+            assert.ifError(err);
+            done();
+        });
+    });
+
+    it('Exec not existing.', (done) => {
+        execcli('__invalid_command_', [{a: true, l: true}, '.'], {
+            notfound: 'Please try `foo`.'
+        }, (err) => {
+            assert.ok(!!err);
+            done();
+        });
+    });
+
+});

@@ -12,7 +12,7 @@ var apeTasking = require('ape-tasking'),
     apeReporting = require('ape-reporting');
 
 apeTasking.runTasks('report', [
-    function sendToCodeclimate(callback) {
+    (callback) => {
         apeReporting.sendToCodeclimate('coverage/lcov.info', callback);
     }
 ], true);

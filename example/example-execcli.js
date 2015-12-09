@@ -6,9 +6,9 @@
 
 "use strict";
 
-var execcli = require('execcli');
+const execcli = require('execcli');
 
 // Equivalent to execute `ls -l .` from command line.
-execcli('ls', ['.', {'l':true}], function (err) {
+execcli('ls', ['.', {'l':true}], (err) => {
     /*...*/
 });

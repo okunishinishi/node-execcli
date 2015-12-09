@@ -6,11 +6,11 @@
 
 "use strict";
 
-var execcli = require('./execcli'),
+const execcli = require('./execcli'),
     npmBin = require('./npm_bin'),
     pkg = require('../package.json');
 
-var lib = execcli.bind(this);
+let lib = execcli.bind(this);
 lib.execcli = execcli;
 lib.npmBin = npmBin;
 lib.version = pkg.version;
