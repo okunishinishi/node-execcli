@@ -4,7 +4,8 @@
 
 "use strict";
 
-const index = require('../lib');
+const index = require('../lib'),
+    assert = require('assert');
 
 describe('index', ()=> {
 

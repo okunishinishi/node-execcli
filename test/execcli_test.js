@@ -8,7 +8,7 @@
 const execcli = require('../lib/execcli'),
     assert = require('assert');
 
-descrie('execcli', ()=> {
+describe('execcli', ()=> {
 
 
     it('Optional args.', (done) => {

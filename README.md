@@ -87,9 +87,10 @@ Options
 -------
 
 | Key | Description | Default |
-| --- | --- |
+| --- | --- | --- |
 | notfound |  Instruction text when bin not found. | '' |
 | cwd | Working directory path | process.cwd() |
+
 
 <!-- Section from "doc/readme/03.Options.md.hbs" End -->
 
