@@ -2,7 +2,7 @@
  * Bud file for index.js
  */
 
-"use strict";
+'use strict'
 
 const index = require('../lib'),
     assert = require('assert');

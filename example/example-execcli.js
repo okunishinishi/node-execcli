@@ -4,11 +4,11 @@
  * This is an example to use execcli.
  */
 
-"use strict";
+'use strict'
 
-const execcli = require('execcli');
+const execcli = require('execcli')
 
 // Equivalent to execute `ls -l .` from command line.
-execcli('ls', ['.', {'l':true}], (err) => {
-    /*...*/
-});
+execcli('ls', [ '.', { 'l': true } ]).then(() => {
+  /* ... */
+})

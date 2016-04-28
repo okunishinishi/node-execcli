@@ -3,53 +3,57 @@
  * Runs with mocha.
  */
 
-"use strict";
+'use strict'
 
-const execcli = require('../lib/execcli'),
-    assert = require('assert');
+const execcli = require('../lib/execcli')
+const assert = require('assert')
+const co = require('co')
 
-describe('execcli', ()=> {
+describe('execcli', () => {
+  it('Optional args.', (done) => {
+    let args = execcli._optionArgs({
+      'fooBar': 'bazQuz',
+      '--quz-buz': '123'
+    })
+    assert.deepEqual(args, [ '--foo-bar', 'bazQuz', '--quz-buz', '123' ])
+    done()
+  })
 
+  it('Exec cli.', (done) => {
+    execcli('ls', [ { a: true, l: true }, '.' ], function (err) {
+      assert.ifError(err)
+      done()
+    })
+  })
 
-    it('Optional args.', (done) => {
-        let args = execcli._optionArgs({
-            'fooBar': 'bazQuz',
-            '--quz-buz': '123'
-        });
-        assert.deepEqual(args, ['--foo-bar', 'bazQuz', '--quz-buz', '123']);
-        done();
-    });
+  it('Exec cli with promise.', () => co(function *(){
+    yield execcli('ls', [ { a: true, l: true }, '.' ])
+  }))
 
-    it('Exec cli.', (done) => {
-        execcli('ls', [{a: true, l: true}, '.'], function (err) {
-            assert.ifError(err);
-            done();
-        });
-    });
+  it('Exec cli with spawn options.', (done) => {
+    execcli('ls', [ { a: true, l: true }, '.' ], {}, (err) => {
+      assert.ifError(err)
+      done()
+    })
+  })
 
-    it('Exec cli with spawn options.', (done) => {
-        execcli('ls', [{a: true, l: true}, '.'], {}, (err) => {
-            assert.ifError(err);
-            done();
-        });
-    });
+  it('Exec cli spawn working directory.', (done) => {
+    execcli('ls', [ { a: true, l: true }, '.' ], {
+      cwd: `${__dirname}/../ci`
+    }, (err) => {
+      assert.ifError(err)
+      done()
+    })
+  })
 
-    it('Exec cli spawn working directory.', (done) => {
-        execcli('ls', [{a: true, l: true}, '.'], {
-            cwd: __dirname + '/../ci'
-        }, (err) => {
-            assert.ifError(err);
-            done();
-        });
-    });
+  it('Exec not existing.', (done) => {
+    execcli('__invalid_command_', [ { a: true, l: true }, '.' ], {
+      notfound: 'Please try `foo`.'
+    }, (err) => {
+      assert.ok(!!err)
+      done()
+    })
+  })
+})
 
-    it('Exec not existing.', (done) => {
-        execcli('__invalid_command_', [{a: true, l: true}, '.'], {
-            notfound: 'Please try `foo`.'
-        }, (err) => {
-            assert.ok(!!err);
-            done();
-        });
-    });
-
-});
+/* global describe, it */
