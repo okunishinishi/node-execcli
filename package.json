@@ -1,6 +1,6 @@
 {
   "name": "execcli",
-  "version": "4.0.2",
+  "version": "4.0.3",
   "description": "Execute CLI command on sub process.",
   "main": "lib",
   "scripts": {
