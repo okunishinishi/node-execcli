@@ -1,6 +1,6 @@
 {
   "name": "execcli",
-  "version": "4.0.1",
+  "version": "4.0.2",
   "description": "Execute CLI command on sub process.",
   "main": "lib",
   "scripts": {
@@ -31,13 +31,13 @@
   },
   "devDependencies": {
     "ape-covering": "^3.0.0",
-    "ape-releasing": "^3.0.6",
+    "ape-releasing": "^3.0.7",
     "ape-reporting": "^3.0.0",
-    "ape-tasking": "^3.1.1",
+    "ape-tasking": "^3.1.2",
     "ape-testing": "^3.0.0",
-    "ape-tmpl": "^4.0.4",
-    "ape-updating": "^3.0.0",
-    "coz": "^5.0.2"
+    "ape-tmpl": "^5.0.1",
+    "ape-updating": "^3.0.1",
+    "coz": "^5.0.3"
   },
   "engines": {
     "node": ">=4.0"
