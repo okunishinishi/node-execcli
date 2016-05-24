@@ -26,7 +26,7 @@ describe('execcli', () => {
     })
   })
 
-  it('Exec cli with promise.', () => co(function *(){
+  it('Exec cli with promise.', () => co(function * () {
     yield execcli('ls', [ { a: true, l: true }, '.' ])
   }))
 
@@ -49,7 +49,7 @@ describe('execcli', () => {
   it('Exec not existing.', (done) => {
     execcli('__invalid_command_', [ { a: true, l: true }, '.' ], {
       notfound: 'Please try `foo`.'
-    }, (err) => {
+    }).catch((err) => {
       assert.ok(!!err)
       done()
     })
