@@ -1,6 +1,6 @@
 {
   "name": "execcli",
-  "version": "4.0.10",
+  "version": "4.0.11",
   "description": "Execute CLI command on sub process.",
   "main": "shim/node",
   "browser": false,

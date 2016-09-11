@@ -8,14 +8,12 @@
 
 const execcli = require('./execcli')
 const npmBin = require('./npm_bin')
-const pkg = require('../package.json')
 
 let lib = execcli.bind(this)
 
 Object.assign(lib, {
   execcli,
-  npmBin,
-  version: pkg.version
+  npmBin
 })
 
 module.exports = lib
