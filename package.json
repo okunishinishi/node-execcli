@@ -1,11 +1,12 @@
 {
   "name": "execcli",
-  "version": "4.0.9",
+  "version": "4.0.10",
   "description": "Execute CLI command on sub process.",
-  "main": "lib",
+  "main": "shim/node",
+  "browser": false,
   "scripts": {
-    "test": "./ci/test.js",
-    "prepublish": "./ci/build.js"
+    "test": "node ./ci/test.js",
+    "prepublish": "node ./ci/build.js && node ./ci/shim.js"
   },
   "repository": "okunishinishi/node-execcli",
   "keywords": [
@@ -24,8 +25,11 @@
   },
   "homepage": "https://github.com/okunishinishi/node-execcli#readme",
   "dependencies": {
+    "ababel": "^1.1.3",
+    "ababel-es2015": "^1.0.6",
     "argx": "^3.0.0",
     "arrayreduce": "^2.1.0",
+    "babel-runtime": "^6.11.6",
     "findout": "^2.0.1",
     "hasbin": "^1.2.3",
     "stringcase": "^3.0.1"
@@ -40,7 +44,7 @@
     "coz": "^6.0.14"
   },
   "engines": {
-    "node": ">=6",
-    "npm": ">=3"
+    "node": ">=4",
+    "npm": ">=2"
   }
 }

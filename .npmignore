@@ -29,5 +29,3 @@ node_modules
 # IDE, OS
 .idea
 .DS_Store
-
-shim/node
