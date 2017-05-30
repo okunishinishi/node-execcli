@@ -1,9 +1,8 @@
 {
   "name": "execcli",
-  "version": "4.0.12",
+  "version": "5.0.1",
   "description": "Execute CLI command on sub process.",
-  "main": "shim/node",
-  "browser": false,
+  "main": "lib",
   "scripts": {
     "test": "node ./ci/test.js",
     "prepare": "node ./ci/build.js && node ./ci/shim.js"
@@ -27,7 +26,6 @@
   "dependencies": {
     "argx": "^3.0.0",
     "arrayreduce": "^2.1.0",
-    "babel-runtime": "^6.23.0",
     "findout": "^2.0.1",
     "hasbin": "^1.2.3",
     "stringcase": "^3.2.1"
@@ -43,7 +41,7 @@
     "coz": "^6.0.20"
   },
   "engines": {
-    "node": ">=6",
+    "node": ">=7.6",
     "npm": ">=4"
   }
 }
