@@ -1,6 +1,6 @@
 {
   "name": "execcli",
-  "version": "5.0.1",
+  "version": "5.0.2",
   "description": "Execute CLI command on sub process.",
   "main": "lib",
   "scripts": {
@@ -26,17 +26,17 @@
   "dependencies": {
     "argx": "^3.0.0",
     "arrayreduce": "^2.1.0",
-    "findout": "^2.0.1",
+    "findout": "^3.0.1",
     "hasbin": "^1.2.3",
-    "stringcase": "^3.2.1"
+    "stringcase": "^4.0.0"
   },
   "devDependencies": {
     "ababel": "^2.0.1",
     "ababel-es2015": "^2.0.1",
-    "amocha": "^2.0.0",
+    "amocha": "^3.0.0",
     "ape-releasing": "^4.0.2",
     "ape-tasking": "^4.0.9",
-    "ape-tmpl": "^5.0.20",
+    "ape-tmpl": "^6.0.1",
     "ape-updating": "^4.1.0",
     "coz": "^6.0.20"
   },
