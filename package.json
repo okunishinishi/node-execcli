@@ -33,15 +33,15 @@
   "devDependencies": {
     "ababel": "^2.0.1",
     "ababel-es2015": "^2.0.1",
-    "amocha": "^3.0.0",
+    "amocha": "^4.0.0",
     "ape-releasing": "^4.0.2",
     "ape-tasking": "^4.0.9",
-    "ape-tmpl": "^6.0.1",
+    "ape-tmpl": "^6.0.2",
     "ape-updating": "^4.1.0",
     "coz": "^6.0.20"
   },
   "engines": {
-    "node": ">=7.6",
+    "node": ">=8",
     "npm": ">=4"
   }
 }
